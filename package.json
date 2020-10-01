@@ -1,0 +1,29 @@
+{
+  "name": "servermanager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js/main.js",
+  "dependencies": {
+    "del": "^6.0.0",
+    "express": "^4.17.1",
+    "gulp": "^4.0.2"
+  },
+  "devDependencies": {
+    "gulp-run": "^1.7.1",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "typescript": "^4.0.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linvogel/ServerManager.git"
+  },
+  "author": "Linus Vogel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linvogel/ServerManager/issues"
+  },
+  "homepage": "https://github.com/linvogel/ServerManager#readme"
+}
