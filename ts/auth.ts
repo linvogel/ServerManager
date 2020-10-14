@@ -5,7 +5,7 @@ import { nextTick } from "process";
 
 const jwt_secret = "1234_1";
 
-function auth(req: Request, res: Response) {
+async function auth(req: Request, res: Response) {
 	
 	try {
 		if (req.cookies['auth-token'] !== undefined)
@@ -18,7 +18,7 @@ function auth(req: Request, res: Response) {
 	
 }
 
-export function auth_handler(req: Request, res: Response) {
+export async function auth_handler(req: Request, res: Response) {
 	if (!auth(req, res)) {
 		// this request is notauthorized, so redirect to the loginscreen
 		res.redirect("/login.html");
@@ -28,7 +28,7 @@ export function auth_handler(req: Request, res: Response) {
 	}
 }
 
-export function login_handler(req: Request, res: Response) {
+export async function login_handler(req: Request, res: Response) {
 	
 	// check the validity of the provided credentials
 	

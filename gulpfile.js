@@ -4,6 +4,7 @@ const tsProject = ts.createProject('tsconfig.json');
 const del = require('del');
 const run = require('gulp-run');
 const nodemon = require('nodemon');
+const { stdout } = require('process');
 
 function task_clean() {
 	return del("./js/*");
