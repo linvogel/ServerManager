@@ -6,7 +6,7 @@ var db: any = undefined;
 const pw_hash_secret = "default_secret";
 
 function dbNotice(msg: any): void {
-	//console.log(msg.severity + ": " + msg.message);
+	console.log(msg.severity + ": " + msg.message);
 }
 
 export async function dbSetup(): Promise<void> {
@@ -14,14 +14,22 @@ export async function dbSetup(): Promise<void> {
 		host: 'localhost',
 		user: 'user_servermanager',
 		password: 'test_pw',
-		port: 5432,
-		datasbase: 'db_servermanager',
+		port: 5433,
+		database: 'db_servermanager',
 		ssl: false,
 		onnotice: dbNotice
 	});
 	
+	console.log("been here");
+	
 	// create the users table
-	let ans = await db`CREATE TABLE IF NOT EXISTS sm_users(username TEXT UNIQUE, pw_hash TEXT, PRIMARY KEY (username));`;
+	try {
+		let ans = await db`CREATE TABLE IF NOT EXISTS sm_users(username TEXT UNIQUE, pw_hash TEXT, PRIMARY KEY (username));`;
+		console.log(JSON.stringify(ans));
+	} catch (e) {
+		console.log(e);
+	}
+	console.log("Been here!");
 }
 
 export async function dbVerifyUsernameAndPassword(username: string, password: string): Promise<boolean | string> {

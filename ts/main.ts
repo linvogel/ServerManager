@@ -26,7 +26,7 @@ app.get('/login.html', handle_request);
 app.get('/login.js', handle_request);
 app.get('/base.css', handle_request);
 
-app.use('/action_login', auth.login_handler);
+app.post('/action_login', auth.login_handler);
 
 app.use(auth.auth_handler);
 
