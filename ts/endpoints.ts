@@ -1,7 +1,5 @@
 import { Request, Response } from 'express';
 
-
-
-export async function getStatus(req: Request, res: Response) {
-	
+interface IEndpoint {
+	getPanel: () => Promise<string | undefined>
 }

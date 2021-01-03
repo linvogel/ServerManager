@@ -5,6 +5,7 @@ const del = require('del');
 const run = require('gulp-run');
 const nodemon = require('nodemon');
 const { stdout } = require('process');
+const { spawn } = require('child_process');
 
 function task_clean() {
 	return del("./js/*");
@@ -15,7 +16,8 @@ function task_build() {
 }
 
 function task_run() {
-	return run('node ./js/main.js').exec();
+	let cmd = spawn('node', ['./js/main.js'], {stdio: 'inherit'});
+	cmd.on('close', code => console.log('Process terminated with exit code: ' + code));
 }
 
 function task_watch() {
